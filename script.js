@@ -1,38 +1,21 @@
-
-let itemInput = document.getElementById("itemInput");
-let addItemButton = document.getElementById("addItemButton");
-let removeItemButton = document.getElementById("removeItemButton");
-let cartList = document.getElementById("cart");
-
-let cart = [];
+const productNameInput = document.getElementById('product-name');
+const productPriceInput = document.getElementById('product-price');
+const addProductButton = document.getElementById('add-product');
+const cart = document.getElementById('cart');
+const totalPriceSpan = document.getElementById('total-price');
  
-addItemButton.addEventListener("click", function () {
-  let item = itemInput.value;
+let totalPrice = 0;
  
-  if (item === "") {
-    alert("Please enter an item.");
-    return;
-  }
+// Function to update the total price
+function updateTotalPrice(amount) {
+  totalPrice += amount;
+  totalPriceSpan.textContent = totalPrice.toFixed(2);
+}
  
-  cart.push(item); // Add item to cart array
-  renderCart();
-  itemInput.value = ""; // Clear the input field
-});
-
-const checkbox = document.createElement('input');
-checkbox.type = 'checkbox';
-li.appendChild(checkbox);
- 
-removeItemButton.addEventListener("click", function () {
-  cart.pop(); // Remove last item from cart array
-  renderCart();
-});
- 
-function renderCart() {
-  cartList.innerHTML = ""; // Clear existing list
-  for (let i = 0; i < cart.length; i++) {
-    let listItem = document.createElement("li");
-    listItem.innerText = cart[i];
-    cartList.appendChild(listItem);
-  }
+// Function to remove an item
+function removeItem(event) {
+  const item = event.target.closest('li');
+  const price = parseFloat(item.dataset.price);
+  updateTotalPrice(-price);
+  item.remove();
 }
