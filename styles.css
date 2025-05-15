@@ -6,6 +6,7 @@ body {
    
   #product-container {
     display: flex;
+    justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
   }
@@ -27,5 +28,8 @@ body {
   }
    
   .cart-item button {
+    background-color: cyan;
     margin-left: 10px;
   }
+  
+  .add-product
