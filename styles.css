@@ -1,17 +1,22 @@
 body {
+  background-color: wheat;
+    
+
+  justify-content: center;
     font-family: Arial, sans-serif;
     margin: 20px;
     line-height: 1.6;
   }
    
   #product-container {
-    display: flex;
+    display:flex;
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
   }
    
   #cart {
+    
     list-style: none;
     padding: 0;
   }
@@ -32,4 +37,4 @@ body {
     margin-left: 10px;
   }
   
-  .add-product
+ 
